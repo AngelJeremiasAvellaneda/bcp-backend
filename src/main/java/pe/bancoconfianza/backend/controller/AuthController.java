@@ -80,6 +80,9 @@ public class AuthController {
             return ResponseEntity.status(401).body(new AuthResponse("", null, null, null, null));
         }
         Usuario usuario = optu.get();
+        String hashEnBD = usuario.getPassword() == null ? "<null>" : usuario.getPassword();
+        log.info("[Login] Hash en BD (primeros 30 chars): {}", hashEnBD.length() > 30 ? hashEnBD.substring(0, 30) + "..." : hashEnBD);
+        log.info("[Login] Password input: {}", body.password());
         boolean matches = usuario.getPassword() != null && passwordEncoder.matches(body.password(), usuario.getPassword());
         log.info("[Login] matches={} for {}", matches, usuario.getEmail());
         if (!matches) {
