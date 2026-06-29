@@ -1,0 +1,1 @@
+web: java -jar target/homebanking-backend-1.0.0.jar -Dspring.datasource.url=$SPRING_DATASOURCE_URL -Dspring.datasource.username=$SPRING_DATASOURCE_USERNAME -Dspring.datasource.password=$SPRING_DATASOURCE_PASSWORD -Dspring.jpa.hibernate.ddl-auto=$SPRING_JPA_HIBERNATE_DDL_AUTO

@@ -1,0 +1,41 @@
+# ── Build ────────────────────────────────
+target/
+*.jar
+*.war
+
+# ── IDE ───────────────────────────────────
+.vscode/
+.idea/
+*.iml
+*.iws
+*.ipr
+.project
+.classpath
+.settings/
+
+# ── Environment ───────────────────────────
+.env
+.env.local
+.env.*.local
+
+# ── Git ───────────────────────────────────
+.git
+.gitignore
+.gitattributes
+
+# ── Documentation ────────────────────────
+README.md
+*.md
+LICENSE
+
+# ── OS ────────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ── Test ──────────────────────────────────
+src/test/
+
+# ── Other ─────────────────────────────────
+.mvn/wrapper/
+mvnw
+mvnw.cmd

@@ -1,0 +1,48 @@
+services:
+  - type: web
+    name: banco-confianza-api
+    runtime: java
+    runtimeVersion: 21
+    buildCommand: mvn clean package -DskipTests
+    startCommand: java -jar target/homebanking-backend-1.0.0.jar
+    plan: starter
+    envVars:
+      - key: SPRING_DATASOURCE_URL
+        scope: build,runtime
+        value: ${DATABASE_URL}
+      - key: SPRING_DATASOURCE_USERNAME
+        scope: build,runtime
+        value: ${DATABASE_USER}
+      - key: SPRING_DATASOURCE_PASSWORD
+        scope: build,runtime
+        value: ${DATABASE_PASSWORD}
+      - key: SPRING_DATASOURCE_DRIVER_CLASS_NAME
+        scope: build,runtime
+        value: org.postgresql.Driver
+      - key: SPRING_JPA_HIBERNATE_DDL_AUTO
+        scope: build,runtime
+        value: validate
+      - key: SPRING_JPA_SHOW_SQL
+        scope: build,runtime
+        value: "false"
+      - key: JWT_SECRET
+        scope: build,runtime
+        value: ${JWT_SECRET}
+      - key: JWT_EXPIRATION_MS
+        scope: build,runtime
+        value: "86400000"
+      - key: SUPABASE_URL
+        scope: build,runtime
+        value: ${SUPABASE_URL}
+      - key: CORS_ORIGINS
+        scope: build,runtime
+        value: ${CORS_ORIGINS}
+      - key: LOGGING_LEVEL_PE_BANCOCONFIANZA
+        scope: build,runtime
+        value: INFO
+      - key: LOGGING_LEVEL_ORG_SPRINGFRAMEWORK_SECURITY
+        scope: build,runtime
+        value: WARN
+      - key: LOGGING_LEVEL_ORG_SPRINGFRAMEWORK_BOOT_AUTOCONFIGURE_JDBC
+        scope: build,runtime
+        value: WARN
