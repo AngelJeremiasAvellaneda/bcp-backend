@@ -38,7 +38,8 @@ EXPOSE 8080
 # Variables de entorno requeridas
 ENV SPRING_PROFILES_ACTIVE=prod
 ENV JAVA_OPTS="-XX:+UseG1GC -XX:MaxRAMPercentage=75.0 -XX:+UseStringDeduplication"
+ENV PORT=8080
 
-# Comando de inicio
-ENTRYPOINT ["java", "-jar", "app.jar"]
+# Comando de inicio - FUERZA el profile prod
+ENTRYPOINT ["java", "-Dspring.profiles.active=prod", "-jar", "app.jar"]
 CMD [""]
